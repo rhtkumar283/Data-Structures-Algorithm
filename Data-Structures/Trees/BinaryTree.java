@@ -51,6 +51,7 @@ public class BinaryTreeNode{
 class BinaryTree{
   BinaryTreeNode root;
 
+  //Inserting a node in the tree;
   public BinaryTreeNode insert(int data){
     BinaryTreeNode new_node = new BinaryTreeNode(data);
 
@@ -76,7 +77,7 @@ class BinaryTree{
     if(root == null){
       return res;
     }
-    Stack<BinaryTreeNode> stack = new Stack<BinaryTreeNode>();
+    Stack<BinaryTreeNode> stack = new Stack<>();
     stack.push(root);
     while(!stack.isEmpty()){
       BinaryTreeNode temp = stack.pop();
@@ -196,7 +197,7 @@ class BinaryTree{
   // }
 
   //Height of a tree:
-  static int treeHeight(BinaryTreeNode root){
+  public static int treeHeight(BinaryTreeNode root){
     if(root == null) return 0;
     else{
       int lheight = treeHeight(root.left);
@@ -243,6 +244,7 @@ class BinaryTree{
     if(maxValue < root.data) maxValue = root.data;
     return maxValue;
   }
+
   //Above problem without recursion:
   public int maxElement(BinaryTreeNode root){
     int maxValue = 0;
@@ -351,7 +353,7 @@ class BinaryTree{
   //In level order traversal the last node processed from queue is the
   //deepest node of the tree;
 
-  //Diameter if the BinaryTree using recursion:
+  //Diameter of the BinaryTree using recursion:
   public int diameter(BinaryTreeNode root){
     if(root == null) return 0;
     int lheight = treeHeight(root.left);
@@ -374,6 +376,7 @@ class BinaryTree{
     }
     return max;
   }
+
   //Returns the number of nodes on a given level:
   public int width(BinaryTreeNode root, int level){
     if(root == null) return 0;
