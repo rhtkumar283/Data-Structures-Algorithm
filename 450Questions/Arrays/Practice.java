@@ -98,8 +98,7 @@ public class Practice{
   }
 
   //Union of two arrays
-  public static int doUnion(int a[], int n, int b[], int m)
-    {
+  public static int doUnion(int a[], int n, int b[], int m){
         Set<Integer> set = new HashSet<>();
         for(int i = 0; i < n; i++)
             set.add(a[i]);
@@ -110,11 +109,23 @@ public class Practice{
     }
 
   //Given an array, rotate the array by one position in clock-wise direction.
-  public void rotate(int arr[], int n)
-    {
+  public void rotate(int arr[], int n){
         int last = arr[n-1];
         for(int i = n-1; i > 0; i--)
             arr[i] = arr[i-1];
         arr[0] = last;
-    }  
+    }
+
+  //Given an array Arr[] of N integers. Find the contiguous sub-array(containing
+  //at least one number) which has the maximum sum and return its sum.
+  public static maxSubarraySum(int[] arr){
+    int max = arr[0];
+    int current_max = arr[0];
+
+    for(int i = 1; i < arr.length; i++){
+      current_max = Maths.max(a[i], current_max + arr[i]);
+      max = Maths.max(current_max, max);
+    }
+    return max;
+  }
 }
