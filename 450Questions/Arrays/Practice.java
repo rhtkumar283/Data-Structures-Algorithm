@@ -3,14 +3,15 @@ import java.util.*;
 public class Practice{
 
   public static void main(String[] args){
-    int[] arr = {1, 0};
+    int[] arr = {-12, -11, -13, -5, -6, -7, -5, -3, -6};
     // int[] res = reverse(arr);
     //
     // for(int i = 0; i < res.length; i++)
     //   System.out.print(res[i] + ", ");
     // getMinMax(arr);
     //System.out.println(kthSmallest(arr, 5));
-    sort012(arr);
+    //sort012(arr);
+    posNegArray(arr);
   }
 
   //Write a program to reverse an array or string
@@ -73,4 +74,47 @@ public class Practice{
     for(int k = 0; k < arr.length; k++)
         System.out.print(arr[k]+" ");
   }
+
+  //Move all negative numbers to beginning and positive to end with constant extra space
+  public static void posNegArray(int[] arr){
+    int left = 0;
+    int right = arr.length -1;
+    int temp = 0;
+
+    while(left < right){
+      if(arr[left] < 0 && arr[right] < 0) left++;
+      else if(arr[left] < 0 && arr[right] > 0){
+        left++;
+        right--;
+      }
+      else if(arr[left] > 0 && arr[right] > 0) right--;
+      else if(arr[left] > 0 && arr[right] < 0){
+        temp = arr[left];
+        arr[left] = arr[right];
+        arr[right] = temp;
+      }
+    }
+    for(int e : arr) System.out.print(e + " ");
+  }
+
+  //Union of two arrays
+  public static int doUnion(int a[], int n, int b[], int m)
+    {
+        Set<Integer> set = new HashSet<>();
+        for(int i = 0; i < n; i++)
+            set.add(a[i]);
+        for(int j = 0; j < m; j++)
+            set.add(b[j]);
+
+        return set.size();
+    }
+
+  //Given an array, rotate the array by one position in clock-wise direction.
+  public void rotate(int arr[], int n)
+    {
+        int last = arr[n-1];
+        for(int i = n-1; i > 0; i--)
+            arr[i] = arr[i-1];
+        arr[0] = last;
+    }  
 }

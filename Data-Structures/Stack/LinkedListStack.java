@@ -67,47 +67,47 @@ public class LinkedListStack{
 
 //========================//
 //Problem Solving:
-//   public boolean checkIfBalancedSymbols(String s){
-//     LinkedListStack stack = new LinkedListStack();
-//     if(s == null || s.length() == 0){
-//       return true;
-//     }
-//     for(int i = 0; i < s.length(); i++){
-//       if(s.charAt(i) == ']'){
-//         if(!stack.isEmpty() && stack.peek() == '['){
-//           stack.pop();
-//         }
-//         else{
-//           return false;
-//         }
-//       }else if(s.charAt(i) == ')'){
-//         if(!stack.isEmpty() && stack.peek() == '('){
-//           stack.pop();
-//         }
-//         else{
-//           return false;
-//         }
-//     }else if(s.charAt(i) == '}'){
-//       if(!stack.isEmpty() && stack.peek() == '{'){
-//         stack.pop();
-//       }
-//       else{
-//         return false;
-//       }
-//   }else{
-//     if(s.charAt(i) == '[' || s.charAt(i) == '(' || s.charAt(i) == '{'){
-//       stack.push(s.charAt(i));
-//     }else{
-//       continue;
-//     }
-//   }
-// }
-//   if(stack.isEmpty())
-//     return true;
-//   else
-//     return false;
-//
-// }
+  public boolean checkIfBalancedSymbols(String s){
+    LinkedListStack stack = new LinkedListStack();
+    if(s == null || s.length() == 0){
+      return true;
+    }
+    for(int i = 0; i < s.length(); i++){
+      if(s.charAt(i) == ']'){
+        if(!stack.isEmpty() && stack.peek() == '['){
+          stack.pop();
+        }
+        else{
+          return false;
+        }
+      }else if(s.charAt(i) == ')'){
+        if(!stack.isEmpty() && stack.peek() == '('){
+          stack.pop();
+        }
+        else{
+          return false;
+        }
+    }else if(s.charAt(i) == '}'){
+      if(!stack.isEmpty() && stack.peek() == '{'){
+        stack.pop();
+      }
+      else{
+        return false;
+      }
+  }else{
+    if(s.charAt(i) == '[' || s.charAt(i) == '(' || s.charAt(i) == '{'){
+      stack.push(s.charAt(i));
+    }else{
+      continue;
+    }
+  }
+}
+  if(stack.isEmpty())
+    return true;
+  else
+    return false;
+
+}
 //
 // public boolean isOpeningBracket(char s){
 //   if(s == '(' || s == '{' || s == '['){
