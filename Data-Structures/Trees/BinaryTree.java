@@ -174,27 +174,27 @@ class BinaryTree{
   }
 
   //postOrder Iterative: 2nd method(Using one stacks)
-  // public void postOrderIterative2(BinaryTreeNode root){
-  //   Stack<BinaryTreeNode> stack = new Stack<BinaryTreeNode>();
-  //   if(root == null) return;
-  //
-  //   while(root != null){
-  //     if(root.right != null) stack.push(root.right);
-  //     stack.push(root);
-  //     root = root.left;
-  //   }
-  //   while(!stack.isEmpty()){
-  //     root = stack.pop();
-  //     if(root.right != null && root.right == stack.peek()){
-  //       stack.pop();
-  //       stack.push(root);
-  //       root = root.right;
-  //     }else{
-  //       System.out.println(root.data+" ");
-  //       root = null;
-  //     }
-  //   }
-  // }
+  public void postOrderIterative2(BinaryTreeNode root){
+    Stack<BinaryTreeNode> stack = new Stack<BinaryTreeNode>();
+    if(root == null) return;
+
+    while(root != null){
+      if(root.right != null) stack.push(root.right);
+      stack.push(root);
+      root = root.left;
+    }
+    while(!stack.isEmpty()){
+      root = stack.pop();
+      if(root.right != null && root.right == stack.peek()){
+        stack.pop();
+        stack.push(root);
+        root = root.right;
+      }else{
+        System.out.println(root.data+" ");
+        root = null;
+      }
+    }
+  }
 
   //Height of a tree:
   public static int treeHeight(BinaryTreeNode root){
