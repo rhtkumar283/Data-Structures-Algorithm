@@ -7,8 +7,14 @@ public class Sorting{
     // sort.bubbleSort(array);
     // System.out.println();
     // sort.bubbleSortModified(array);
+    //sort.selectionSort2(array);
     sort.insertionSort(array);
 
+  }
+
+  public static void printArray(int[] array){
+    for(int i = 0; i < array.length; i++)
+      System.out.print(array[i]+ " ");
   }
 
 //=======BUBBLE SORT=========//
@@ -24,8 +30,7 @@ public class Sorting{
         }
       }
     }
-    for(int i = 0; i < array.length; i++)
-      System.out.print(array[i]+ " ");
+    printArray(array);
   }
 
 //Modified by adding a flag swapped which indicate if no more swaps then list is already
@@ -45,8 +50,7 @@ public class Sorting{
         }
       }
     }
-    for(int i = 0; i < array.length; i++)
-      System.out.print(array[i]+ " ");
+    printArray(array);
   }
 
 //=======SELECTION SORT=========//
@@ -68,10 +72,24 @@ public class Sorting{
       array[i] = temp;
       } else continue;
     }
-    for(int i = 0; i < array.length; i++)
-      System.out.print(array[i]+ " ");
+    printArray(array);
   }
 
+  //Selection sort: 2nd Method
+  public void selectionSort2(int[] arr){
+    int min, temp;
+
+    for(int i = 0; i < arr.length-1; i++){
+      min = i;
+      for(int j = i+1; j < arr.length; j++){
+        if(arr[min] > arr[j]) min = j;
+      }
+      temp = arr[min];
+      arr[min] = arr[i];
+      arr[i] = temp;
+    }
+    printArray(arr);
+  }
 
   //===========INSERTION SORT==============//
   //[334, 212, 657, 100, 423, 105]
@@ -80,16 +98,21 @@ public class Sorting{
     //int temp = 0;
     for(int i = 1; i < arr.length; i++){
       key = arr[i];
-      int j = i-1;
-      while(j >= 0 && arr[j] > key){
-          arr[j+1] = arr[j];
+      int j = i;
+      while(j >= 1 && arr[j-1] > key){
+          arr[j] = arr[j-1];
           j--;
       }
-      arr[j+1] = key;
+      arr[j] = key;
+      // printArray(arr);
+      // System.out.println();
     }
-    for(int i = 0; i < arr.length; i++)
-      System.out.print(arr[i]+ " ");
+    printArray(arr);
   }
 
-  //=========
+  //=========MERGE SORT===========//
+
+
+
+
 }
